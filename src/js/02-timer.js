@@ -41,7 +41,7 @@ function startTimer() {
     
     addLeadingZero(convertMs(time));
 
-     if (time <= 0) {
+     if (time <= 1000) {
        clearInterval(timerID);
        return;
     }
