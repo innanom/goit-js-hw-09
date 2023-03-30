@@ -38,7 +38,8 @@ function startTimer() {
     const time = finishTime - currentTime;
     const { days, hours, minutes, seconds } = convertMs(time);
     console.log(`${days}:${hours}:${minutes}:${seconds}`)
-    addZero(convertMs(time));
+    
+    addLeadingZero(convertMs(time));
 
      if (time <= 0) {
        clearInterval(timerID);
@@ -48,7 +49,7 @@ function startTimer() {
   }, 1000)
 
 }
-function addZero({ days, hours, minutes, seconds }) {
+function addLeadingZero({ days, hours, minutes, seconds }) {
   daysEl.textContent = days.toString().padStart(2, '0');
   hoursEl.textContent = hours.toString().padStart(2, '0');
   minutesEl.textContent = minutes.toString().padStart(2, '0');
