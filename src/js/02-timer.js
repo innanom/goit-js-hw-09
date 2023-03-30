@@ -8,9 +8,28 @@ const daysEl = document.querySelector('[data-days]')
 const hoursEl = document.querySelector('[data-hours]')
 const minutesEl = document.querySelector('[data-minutes]')
 const secondsEl = document.querySelector('[data-seconds]')
+const timerEl = document.querySelector('.timer')
+const valueEl = document.querySelectorAll('.value')
+const labelEl = document.querySelectorAll('.label')
+
 
 
 startBtn.disabled = true;
+timerEl.style.display = 'flex';
+timerEl.style.gap = '10px';
+timerEl.style.padding = '20px';
+valueEl.forEach(elem => {
+  elem.style.display = 'block';
+  elem.style.textAlign = 'center';
+  elem.style.fontSize = '30px';
+});
+labelEl.forEach(elem => {
+  elem.style.fontSize = '20px';
+});
+
+
+
+
 startBtn.addEventListener('click', startTimer);
 
 const options = {
