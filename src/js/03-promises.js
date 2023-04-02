@@ -12,8 +12,8 @@ function onFormSubmit(event) {
 
   for (let position = 1; position <= amount; position++) {
     createPromise(position, delay) 
-    .then(result => Notiflix.Notify.success(result))
-    .catch(error => Notiflix.Notify.failure(error))
+    .then(result => Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`))
+    .catch(error => Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`))
     delay +=step
   }
   formEl.reset();
@@ -24,10 +24,10 @@ function createPromise(position, delay) {
     const shouldResolve = Math.random() > 0.3;
     setTimeout(() => {
       if (shouldResolve) {
-        resolve(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        resolve({position, delay});
     
       } else {
-        reject(`❌ Rejected promise ${position} in ${delay}ms`);
+        reject({position, delay});
       }
     }, delay);
   });
